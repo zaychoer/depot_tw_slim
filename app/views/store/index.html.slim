@@ -1,0 +1,20 @@
+store.max-w-6xl
+  - if notice
+    notice.m-4.bg-yellow-200.font-bold.py-4.px-5.text-center.text-darkhaki.tracking-wide.border-2.border-darkhaki.block.rounded-lg
+      | #{ notice }
+
+  h1.text-4xl.leading-tight.font-extrabold.capitalize Your Pragmatic Catalog
+
+  ul.border-t-2.border-black.mt-4
+    - @products.each do |product|
+      li.p-4.border-b-2.clearfix
+        = image_tag product.image_url, class: 'p-4 mr-4 mb-4 shadow-image float-left'
+        h2.my-4.text-2xl.leading-tight.font-extrabold.capitalize = product.title
+        description.block
+          = sanitize(product.description)
+        price.block.mt-4
+          span = number_to_currency(product.price)
+          button
+            = button_to 'Add to Cart',
+              line_items_path(product_id: product),
+              class: 'px-4 py-1 ml-2 bg-forestgreen hover:bg-darkgreen cursor-pointer text-white border-solid border-darkgreen border rounded'

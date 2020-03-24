@@ -2,7 +2,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "regal-green": "#282",
+        "forestgreen": "#282",
+        "darkgreen": "#141",
+        "darkhaki": "#882",
+        "haki": "#992",
+        "deephaki": "#441"
       },
       boxShadow: {
         image: '0.176em 0.176em 0.354em 0px rgba(0, 0, 0, 0.75)'

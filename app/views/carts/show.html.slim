@@ -1,0 +1,23 @@
+cart
+  - if notice
+    notice.bg-yellow-200.font-bold.py-4.px-5.text-center.text-darkhaki.tracking-wide.border-2.border-darkhaki.block.rounded-lg
+      | #{ notice }
+
+  h2.mt-4.text-2xl.font-extrabold.leading-tight Your Cart
+  table
+    - @cart.line_items.each do |line_item|
+      tr
+        td.p-2.pr-1.whitespace-no-wrap #{line_item.quantity}
+        td.py-2 x
+        td.p-2 = line_item.product.title
+        td.p-2.font-bold.text-right = number_to_currency(line_item.total_price)
+    tfoot.font-bold.pt-4
+      tr
+        th.p-2.text-right colspan="3" Total:
+        td.p-2.text-right.border-t-2.border-solid.border-black = number_to_currency(@cart.total_price)
+
+  = button_to 'Empty Cart',
+    @cart,
+    method: :delete,
+    data: { confirm: 'Are you sure?' },
+    class: 'px-4 py-1 bg-darkhaki hover:bg-haki cursor-pointer text-white border-solid border-deephaki border rounded'

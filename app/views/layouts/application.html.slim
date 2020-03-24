@@ -6,12 +6,22 @@ html
     meta name="description" content=""
     meta name="author" content=""
     title
-      | DepotTwSlim
+      | Pragprog Books Online Store
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body.text-gray-900
-    .container.mx-auto.px-4.pt-10
-      = yield
+    header(class="text-center sm:text-left bg-forestgreen")
+      = image_tag 'logo.svg', alt: 'THe Pragmatic Bookshelf'
+      h1.none = @page_title
+    section(class="flex flex-col sm:flex-row")
+      nav(class="pb-4 bg-darkgreen text-center sm:text-left sm:p-4")
+        ul(class="sm:pr-4")
+          li(class="p-2 uppercase tracking-widest text-green-300 hover:text-white") = link_to 'Home', '/'
+          li(class="p-2 uppercase tracking-widest text-green-300 hover:text-white") = link_to 'Question', '/questions'
+          li(class="p-2 uppercase tracking-widest text-green-300 hover:text-white") = link_to 'News', '/news'
+          li(class="p-2 uppercase tracking-widest text-green-300 hover:text-white") = link_to 'Contact', '/contact'
+      main.p-2
+        = yield
