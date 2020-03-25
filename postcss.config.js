@@ -18,7 +18,7 @@ if (process.env.RAILS_ENV === 'production') {
     require('@fullhuman/postcss-purgecss')({
       content: [
         '.app/**/*.html.slim',
-        '.app/javascript/**/*.js'
+        // '.app/javascript/**/*.js'
       ],
       defalutExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
     })
